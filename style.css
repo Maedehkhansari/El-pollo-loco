@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'zabars';
+    src: url('font/zabars.ttf') format('truetype');
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('img/10_game/back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    height: 100vh;
+    font-family: 'zabars', Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 100px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    text-shadow: 0px 0 20px #ffd113;
+}
+
+.d-none{
+    display: none !important;
+}
+
+canvas {
+    background-color: black;
+}
+
+.game-menu {
+    height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-menu div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.game-menu div:hover span {
+    top: -250px;
+}
+
+.game-menu span {
+    font-size: 32px;
+    position: relative;
+    top: 0;
+    transition: all 0.3s ease-out;
+}
+
+.game-menu .start .image {
+    background-image: url('img/10_game/start.png');
+    background-size: contain;
+    width: 200px;
+    height: 200px;
+}
+
+.game-menu .start:hover .image {
+    background-image: url('img/10_game/start_hover.png');
+}
+

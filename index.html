@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="icon/favicon.png">
+        <title>El pollo loco</title>
+        <script src="models/base/world.class.js"></script>
+        <script src="models/base/keyboard.class.js"></script>
+        <script src="models/levels/level-one.class.js"></script>
+        <script src="models/drawable/drawable-object.class.js"></script>
+        <script src="models/drawable/background-object.class.js"></script>
+        <script src="models/drawable/health-status-bar.class.js"></script>
+        <script src="models/drawable/coin-status-bar.class.js"></script>
+        <script src="models/drawable/bottle-status-bar.class.js"></script>
+        <script src="models/drawable/endboss-status-bar.class.js"></script>
+        <script src="models/drawable/bottle.class.js"></script>
+        <script src="models/drawable/startgame.class.js"></script>
+        <script src="models/drawable/gameover.class.js"></script>
+        <script src="models/drawable/wingame.class.js"></script>
+        <script src="models/movable/movable-object.class.js"></script>
+        <script src="models/movable/charactor.class.js"></script>
+        <script src="models/movable/endboss.class.js"></script>
+        <script src="models/movable/chicken.class.js"></script>
+        <script src="models/movable/big-chicken.class.js"></script>
+        <script src="models/movable/small-chicken.class.js"></script>
+        <script src="models/movable/cloud.class.js"></script>
+        <script src="models/movable/throwable-object.class.js"></script>
+        <script src="models/movable/coin.class.js"></script>
+        <script src="js/game.js"></script>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body onload="init()">
+        <h1>El Pollo Loco</h1>
+
+        <div class="game-menu" id="game-menu">
+            <div class="start" onclick="startTheGame()">
+                <div class="image"></div>
+                <span>Start</span>
+            </div>
+        </div>
+
+        <canvas id="canvas" width="720" height="480" class="d-none"> </canvas>
+    </body>
+</html>
