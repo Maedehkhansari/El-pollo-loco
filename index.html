@@ -40,6 +40,39 @@
             </div>
         </div>
 
+        <div id="control" class="control d-none">
+            <div class="sound" onclick="muteSound()">
+                <img src="img/10_game/medium-volume.png" id="volume-img" alt="sound">
+                <img src="img/10_game/mute.png" class="d-none" id="mute-img" alt="mute">
+            </div>
+        </div>
+
         <canvas id="canvas" width="720" height="480" class="d-none"> </canvas>
+
+        <div id="help" class="help d-none">
+            <div class="help-item">
+                <div class="keyboard-button" id="left">
+                    <img src="img/10_game/left-arrow.png" alt="left-arrow.png">
+                </div>
+                <div class="help-info">Left</div>
+            </div>
+
+            <div class="help-item">
+                <div class="keyboard-button" id="right">
+                    <img src="img/10_game/right-arrow.png" alt="right-arrow">
+                </div>
+                <div class="help-info">Right</div>
+            </div>
+
+            <div class="help-item">
+                <div class="keyboard-button" id="throw">D</div>
+                <div class="help-info">Throw Bottles</div>
+            </div>
+
+            <div class="help-item">
+                <div class="keyboard-button keyboard-button-long" id="jump">SPACE</div>
+                <div class="help-info">Jump</div>
+            </div>
+        </div>
     </body>
 </html>

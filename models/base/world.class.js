@@ -292,4 +292,12 @@ class World {
         this.endboss.intervals.forEach((id) => clearInterval(id));
         this.endboss.intervals = [];
     }
+
+    muteBackgroundSound(){
+        this.BACKGROUND_SOUND.pause();
+    }
+
+    playBackgroundSound(){
+        this.BACKGROUND_SOUND.play();
+    }
 }
