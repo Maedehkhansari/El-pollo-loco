@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +7,7 @@
         <title>El pollo loco</title>
         <script src="models/base/world.class.js"></script>
         <script src="models/base/keyboard.class.js"></script>
+        <script src="models/base/controls.class.js"></script>
         <script src="models/levels/level-one.class.js"></script>
         <script src="models/drawable/drawable-object.class.js"></script>
         <script src="models/drawable/background-object.class.js"></script>
@@ -27,51 +28,118 @@
         <script src="models/movable/cloud.class.js"></script>
         <script src="models/movable/throwable-object.class.js"></script>
         <script src="models/movable/coin.class.js"></script>
-        <script src="js/game.js"></script>
-        <link rel="stylesheet" href="./style.css" />
+        <script src="js/game.js?v=0.1"></script>
+        <link rel="stylesheet" href="styles/main.css" />
+        <link rel="stylesheet" href="styles/style.css" />
+        <link rel="stylesheet" href="styles/responsive.css" />
     </head>
     <body onload="init()">
-        <h1>El Pollo Loco</h1>
+        <div class="responsive-portrait-message">
+            <p>Please rotate your device</p>
+            <img src="img/10_game/phone-rotate.png" alt="Rotate">
+        </div>
+        <div id="game-wrapper" class="game-wrapper">
+            <div id="game-menu" class="game-menu">
+                <div class="start" onclick="startTheGame()">
+                    <div class="image"></div>
+                    <span>Start Game</span>
+                </div>
+    
+                <div class="help" onclick="showHelpPage()">
+                    <div class="image"></div>
+                    <span>Help</span>
+                </div>
+            </div>
 
-        <div class="game-menu" id="game-menu">
-            <div class="start" onclick="startTheGame()">
+            <div id="control" class="control d-none">
+                <div class="sound" id="mute-control" onclick="toggleMuteSound()">
+                    <span></span>
+                </div>
+                <div class="touch" id="touch-control" onclick="toggleTouchscreenControls()">
+                    <span></span>
+                </div>
+                <div class="full d-none" id="full-control" onclick="toggleFullScreen()">
+                    <span></span>
+                </div>
+                <div class="pause" id="pause-control" onclick="pauseGame()">
+                    <span></span>
+                </div>
+            </div>
+
+            <div id="restart" class="restart d-none" onclick="restartGame()">
                 <div class="image"></div>
-                <span>Start</span>
+                <span>Restart Game</span>
             </div>
-        </div>
 
-        <div id="control" class="control d-none">
-            <div class="sound" onclick="muteSound()">
-                <img src="img/10_game/medium-volume.png" id="volume-img" alt="sound">
-                <img src="img/10_game/mute.png" class="d-none" id="mute-img" alt="mute">
+            <div id="back-to-menu" class="back-to-menu d-none" onclick="backToMainMenu()">
+                <div class="image"></div>
+                <span>Back to Menu</span>
             </div>
-        </div>
 
-        <canvas id="canvas" width="720" height="480" class="d-none"> </canvas>
-
-        <div id="help" class="help d-none">
-            <div class="help-item">
-                <div class="keyboard-button" id="left">
-                    <img src="img/10_game/left-arrow.png" alt="left-arrow.png">
+            <div id="pause-wrapper" class="pause-container d-none">
+                <div class="pause-wrapper">
+                    <div onclick="resumeGame()">Resume Game</div>
+                    <div onclick="showHelpPage()">Help</div>
+                    <div onclick="backToMainMenu()">Exit and back to Menu</div>
                 </div>
-                <div class="help-info">Left</div>
             </div>
 
-            <div class="help-item">
-                <div class="keyboard-button" id="right">
-                    <img src="img/10_game/right-arrow.png" alt="right-arrow">
+            <canvas id="canvas" width="720" height="480" class="d-none"></canvas>
+
+            <div id="touchscreen-controls" class="touchscreen-control d-none">
+                <div class="left-side">
+                    <div class="keyboard-button" id="nav-left">
+                        <img src="img/10_game/left-arrow.png" alt="left arrow">
+                    </div>
+    
+                    <div class="keyboard-button" id="nav-right">
+                        <img src="img/10_game/right-arrow.png" alt="right arrow">
+                    </div>
                 </div>
-                <div class="help-info">Right</div>
+                <div class="right-side">
+                    <div class="keyboard-button" id="nav-throw">
+                        <img src="img/10_game/throw.png" alt="throw">
+                    </div>
+                    <div class="keyboard-button" id="nav-jump">
+                        <img src="img/10_game/jump.png" alt="Jump">
+                    </div>
+                </div>
             </div>
 
-            <div class="help-item">
-                <div class="keyboard-button" id="throw">D</div>
-                <div class="help-info">Throw Bottles</div>
-            </div>
-
-            <div class="help-item">
-                <div class="keyboard-button keyboard-button-long" id="jump">SPACE</div>
-                <div class="help-info">Jump</div>
+            <div id="help" class="help-wrapper d-none">
+                <div class="close" onclick="hideHelpPage()"><span></span></div>
+                <p>Guide Pepe through an exciting adventure, gathering coins, defeating foes, and collecting spicy salsa to take on the wild hen!</p>
+                <div class="items">
+                    <div class="item">
+                        <div class="keyboard-button">
+                            <img src="img/10_game/left-arrow.png" alt="left arrow">
+                        </div>
+                        <div class="help-info">Left</div>
+                    </div>
+        
+                    <div class="item">
+                        <div class="keyboard-button">
+                            <img src="img/10_game/right-arrow.png" alt="right arrow">
+                        </div>
+                        <div class="help-info">Right</div>
+                    </div>
+        
+                    <div class="item">
+                        <div class="keyboard-button">D</div>
+                        <div class="help-info">Throw Bottles</div>
+                    </div>
+        
+                    <div class="item">
+                        <div class="keyboard-button keyboard-button-long">SPACE</div>
+                        <div class="help-info">Jump</div>
+                    </div>
+    
+                    <div class="item">
+                        <div class="keyboard-button">ENTER</div>
+                        <div class="help-info">Pause Game</div>
+                    </div>
+                </div>
+                <p>Stomp on enemies to defeat them or jump on top to take them down. Collect coins and salsa bottles to use as weapons against the wild hen—but be careful! You can only start throwing bottles once the hen has awakened.</p>
             </div>
         </div>
     </body>

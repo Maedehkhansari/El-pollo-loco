@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "zabars";
+  src: url("../font/zabars/zabars.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "rye";
+  src: url("../font/rye/rye-regular.ttf") format("truetype");
+}
+
+.d-none {
+  display: none !important;
+}

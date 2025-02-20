@@ -1,0 +1,41 @@
+@media only screen and (max-width: 1000px) {
+  .help-wrapper p {
+    font-size: 16px;
+    margin-right: 50px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  canvas {
+    width: 100%;
+  }
+  .game-wrapper {
+    width: auto;
+  }
+}
+
+@media only screen and (max-height: 480px) {
+  canvas {
+    height: 100vh;
+  }
+  .game-wrapper {
+    width: auto;
+    height: 100vh;
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 666px) {
+  .responsive-portrait-message {
+    display: flex;
+  }
+  .game-wrapper {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .touch-nav-visible {
+    display: flex;
+  }
+}

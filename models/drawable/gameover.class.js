@@ -4,7 +4,7 @@ class GameOver extends DrawableObject {
     x = 0
     y = 0
 
-    IMAGE = 'img/9_intro_outro_screens/game_over/game over.png';
+    IMAGE = 'img/9_intro_outro_screens/game_over/game_over.png';
     
     constructor() {
         super().loadImage(this.IMAGE);

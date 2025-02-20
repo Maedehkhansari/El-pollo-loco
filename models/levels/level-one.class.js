@@ -2,10 +2,11 @@ class LevelOne {
     enemies;
     clouds;
     backgroundObject;
+    pauseBackgroundObject;
     coins;
     bottles;
 
-    levelStart_x = 0;
+    levelStart_x = 2 * -719;
     levelEnd_x = 5 * 719;
     levelStart_enemy = 500;
     levelEnd_enemy = 4 * 719;
@@ -14,6 +15,7 @@ class LevelOne {
         this.setEnemies();
         this.setClouds();
         this.setBackgrounds();
+        this.setPauseBackgrounds();
         this.setCoins();
         this.setBottles();
     }
@@ -76,6 +78,8 @@ class LevelOne {
 
     setClouds() {
         this.clouds = [
+            new Cloud(-1000, 1),
+            new Cloud(-300, 1),
             new Cloud(500, 1),
             new Cloud(1200, 2),
             new Cloud(2000, 1),
@@ -87,6 +91,16 @@ class LevelOne {
 
     setBackgrounds() {
         this.backgroundObject = [
+            new BackgroundObject("img/5_background/layers/air.png", 3 * -719, 480),
+            new BackgroundObject("img/5_background/layers/3_third_layer/2.png", 3 * -719),
+            new BackgroundObject("img/5_background/layers/2_second_layer/2.png", 3 * -719),
+            new BackgroundObject("img/5_background/layers/1_first_layer/1.png", 3 * -719),
+
+            new BackgroundObject("img/5_background/layers/air.png", 2 * -719, 480),
+            new BackgroundObject("img/5_background/layers/3_third_layer/1.png", 2 * -719),
+            new BackgroundObject("img/5_background/layers/2_second_layer/1.png", 2 * -719),
+            new BackgroundObject("img/5_background/layers/1_first_layer/2.png", 2 * -719),
+
             new BackgroundObject("img/5_background/layers/air.png", -719, 480),
             new BackgroundObject("img/5_background/layers/3_third_layer/2.png", -719),
             new BackgroundObject("img/5_background/layers/2_second_layer/2.png", -719),
@@ -121,6 +135,20 @@ class LevelOne {
             new BackgroundObject("img/5_background/layers/3_third_layer/2.png", 5 * 719),
             new BackgroundObject("img/5_background/layers/2_second_layer/2.png", 5 * 719),
             new BackgroundObject("img/5_background/layers/1_first_layer/1.png", 5 * 719),
+        ];
+    }
+
+    setPauseBackgrounds() {
+        this.pauseBackgroundObject = [
+            new BackgroundObject("img/9_intro_outro_screens/pause/pause.png", 3 * -720, 480),
+            new BackgroundObject("img/9_intro_outro_screens/pause/pause.png", 2 * -720, 480),
+            new BackgroundObject("img/9_intro_outro_screens/pause/pause.png", -720, 480),
+            new BackgroundObject("img/9_intro_outro_screens/pause/pause.png", 0, 480),
+            new BackgroundObject("img/9_intro_outro_screens/pause/pause.png", 720, 480),
+            new BackgroundObject("img/9_intro_outro_screens/pause/pause.png", 2 * 720, 480),
+            new BackgroundObject("img/9_intro_outro_screens/pause/pause.png", 3 * 720, 480),
+            new BackgroundObject("img/9_intro_outro_screens/pause/pause.png", 4 * 720, 480),
+            new BackgroundObject("img/9_intro_outro_screens/pause/pause.png", 5 * 720, 480),
         ];
     }
 }

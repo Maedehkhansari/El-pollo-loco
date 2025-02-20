@@ -20,9 +20,18 @@ class Bottle extends DrawableObject {
         this.x = this.world.level.levelStart_enemy + Math.random() * this.world.level.levelEnd_enemy;
     }
 
+    togglePickupSound() {
+        if(this.world.isMute) {
+            this.PICKUP_SOUND.pause();
+        } else {
+            this.PICKUP_SOUND.currentTime = 0.3;
+            this.PICKUP_SOUND.volume = 0.2;
+            this.PICKUP_SOUND.play();
+        }
+    }
+
     catched() {
-        this.PICKUP_SOUND.currentTime = 0.3;
-        this.PICKUP_SOUND.play();
+        this.togglePickupSound();
         this.isCatched = true;
         this.y = 3000;
     }
