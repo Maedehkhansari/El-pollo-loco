@@ -3,32 +3,30 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/x-icon" href="icon/favicon.png">
+        <link rel="icon" type="image/x-icon" href="assets/icon/favicon.png">
         <title>El pollo loco</title>
-        <script src="models/base/world.class.js"></script>
-        <script src="models/base/keyboard.class.js"></script>
-        <script src="models/base/controls.class.js"></script>
-        <script src="models/levels/level-one.class.js"></script>
-        <script src="models/drawable/drawable-object.class.js"></script>
-        <script src="models/drawable/background-object.class.js"></script>
-        <script src="models/drawable/health-status-bar.class.js"></script>
-        <script src="models/drawable/coin-status-bar.class.js"></script>
-        <script src="models/drawable/bottle-status-bar.class.js"></script>
-        <script src="models/drawable/endboss-status-bar.class.js"></script>
-        <script src="models/drawable/bottle.class.js"></script>
-        <script src="models/drawable/startgame.class.js"></script>
-        <script src="models/drawable/gameover.class.js"></script>
-        <script src="models/drawable/wingame.class.js"></script>
-        <script src="models/movable/movable-object.class.js"></script>
-        <script src="models/movable/charactor.class.js"></script>
-        <script src="models/movable/endboss.class.js"></script>
-        <script src="models/movable/chicken.class.js"></script>
-        <script src="models/movable/big-chicken.class.js"></script>
-        <script src="models/movable/small-chicken.class.js"></script>
-        <script src="models/movable/cloud.class.js"></script>
-        <script src="models/movable/throwable-object.class.js"></script>
-        <script src="models/movable/coin.class.js"></script>
-        <script src="js/game.js?v=0.1"></script>
+        <script src="scripts/models/base/world.class.js"></script>
+        <script src="scripts/models/base/keyboard.class.js"></script>
+        <script src="scripts/models/base/controls.class.js"></script>
+        <script src="scripts/models/levels/level-one.class.js"></script>
+        <script src="scripts/models/drawable/drawable-object.class.js"></script>
+        <script src="scripts/models/drawable/background-object.class.js"></script>
+        <script src="scripts/models/drawable/health-status-bar.class.js"></script>
+        <script src="scripts/models/drawable/coin-status-bar.class.js"></script>
+        <script src="scripts/models/drawable/bottle-status-bar.class.js"></script>
+        <script src="scripts/models/drawable/endboss-status-bar.class.js"></script>
+        <script src="scripts/models/drawable/bottle.class.js"></script>
+        <script src="scripts/models/drawable/start-game-background.class.js"></script>
+        <script src="scripts/models/movable/movable-object.class.js"></script>
+        <script src="scripts/models/movable/charactor.class.js"></script>
+        <script src="scripts/models/movable/endboss.class.js"></script>
+        <script src="scripts/models/movable/chicken.class.js"></script>
+        <script src="scripts/models/movable/big-chicken.class.js"></script>
+        <script src="scripts/models/movable/small-chicken.class.js"></script>
+        <script src="scripts/models/movable/cloud.class.js"></script>
+        <script src="scripts/models/movable/throwable-object.class.js"></script>
+        <script src="scripts/models/movable/coin.class.js"></script>
+        <script src="scripts/main.js"></script>
         <link rel="stylesheet" href="styles/main.css" />
         <link rel="stylesheet" href="styles/style.css" />
         <link rel="stylesheet" href="styles/responsive.css" />
@@ -36,18 +34,23 @@
     <body onload="init()">
         <div class="responsive-portrait-message">
             <p>Please rotate your device</p>
-            <img src="img/10_game/phone-rotate.png" alt="Rotate">
+            <img src="assets/img/10_game/phone-rotate.png" alt="Rotate">
         </div>
         <div id="game-wrapper" class="game-wrapper">
-            <div id="game-menu" class="game-menu">
+            <div id="start-page" class="start-page">
                 <div class="start" onclick="startTheGame()">
                     <div class="image"></div>
                     <span>Start Game</span>
                 </div>
     
-                <div class="help" onclick="showHelpPage()">
+                <div class="help" onclick="showHelpScreen()">
                     <div class="image"></div>
                     <span>Help</span>
+                </div>
+
+                <div class="imprint" onclick="showImprintPage()">
+                    <div class="image"></div>
+                    <span>Imprint</span>
                 </div>
             </div>
 
@@ -66,20 +69,11 @@
                 </div>
             </div>
 
-            <div id="restart" class="restart d-none" onclick="restartGame()">
-                <div class="image"></div>
-                <span>Restart Game</span>
-            </div>
-
-            <div id="back-to-menu" class="back-to-menu d-none" onclick="backToMainMenu()">
-                <div class="image"></div>
-                <span>Back to Menu</span>
-            </div>
-
-            <div id="pause-wrapper" class="pause-container d-none">
-                <div class="pause-wrapper">
+            <div id="pause-screen" class="pause-screen-container d-none">
+                <div class="pause-screen">
                     <div onclick="resumeGame()">Resume Game</div>
-                    <div onclick="showHelpPage()">Help</div>
+                    <div onclick="showHelpScreen()">Help</div>
+                    <div onclick="showImprintPage()">Imprint</div>
                     <div onclick="backToMainMenu()">Exit and back to Menu</div>
                 </div>
             </div>
@@ -89,37 +83,37 @@
             <div id="touchscreen-controls" class="touchscreen-control d-none">
                 <div class="left-side">
                     <div class="keyboard-button" id="nav-left">
-                        <img src="img/10_game/left-arrow.png" alt="left arrow">
+                        <img src="assets/img/10_game/left-arrow.png" alt="left arrow">
                     </div>
     
                     <div class="keyboard-button" id="nav-right">
-                        <img src="img/10_game/right-arrow.png" alt="right arrow">
+                        <img src="assets/img/10_game/right-arrow.png" alt="right arrow">
                     </div>
                 </div>
                 <div class="right-side">
                     <div class="keyboard-button" id="nav-throw">
-                        <img src="img/10_game/throw.png" alt="throw">
+                        <img src="assets/img/10_game/throw.png" alt="throw">
                     </div>
                     <div class="keyboard-button" id="nav-jump">
-                        <img src="img/10_game/jump.png" alt="Jump">
+                        <img src="assets/img/10_game/jump.png" alt="Jump">
                     </div>
                 </div>
             </div>
 
-            <div id="help" class="help-wrapper d-none">
-                <div class="close" onclick="hideHelpPage()"><span></span></div>
+            <div id="help-screen" class="help-wrapper d-none">
+                <div class="close" onclick="hideHelpScreen()"><span></span></div>
                 <p>Guide Pepe through an exciting adventure, gathering coins, defeating foes, and collecting spicy salsa to take on the wild hen!</p>
                 <div class="items">
                     <div class="item">
                         <div class="keyboard-button">
-                            <img src="img/10_game/left-arrow.png" alt="left arrow">
+                            <img src="assets/img/10_game/left-arrow.png" alt="left arrow">
                         </div>
                         <div class="help-info">Left</div>
                     </div>
         
                     <div class="item">
                         <div class="keyboard-button">
-                            <img src="img/10_game/right-arrow.png" alt="right arrow">
+                            <img src="assets/img/10_game/right-arrow.png" alt="right arrow">
                         </div>
                         <div class="help-info">Right</div>
                     </div>
@@ -140,6 +134,26 @@
                     </div>
                 </div>
                 <p>Stomp on enemies to defeat them or jump on top to take them down. Collect coins and salsa bottles to use as weapons against the wild hen—but be careful! You can only start throwing bottles once the hen has awakened.</p>
+            </div>
+
+            <div id="imprint-screen" class="imprint-wrapper d-none">
+                <div class="close" onclick="hideImprintPage()"><span></span></div>
+                <h2>Imprint</h2>
+                <p>Maedeh Khonsari <br> Im Fliederhain 32 <br> 50354 Hürth</p>
+                <h2>Contact</h2>
+                <p>Telefon: [+4917675487544] <br> E-Mail: info@maedehkhonsari.com</p>
+            </div>
+
+            <div id="win-lose-screen" class="win-lose-wrapper d-none">
+                <div class="restart" onclick="restartGame()">
+                    <div class="image"></div>
+                    <span>Restart Game</span>
+                </div>
+    
+                <div class="back-to-menu" onclick="backToMainMenu()">
+                    <div class="image"></div>
+                    <span>Back to Menu</span>
+                </div>
             </div>
         </div>
     </body>

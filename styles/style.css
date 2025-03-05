@@ -3,7 +3,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("../img/10_game/back.jpg");
+  background-image: url("../assets/img/10_game/back.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: black;
@@ -33,91 +33,7 @@ canvas.fullscreen {
   align-items: center;
 }
 
-.game-wrapper .restart {
-  cursor: pointer;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  text-align: center;
-}
-
-.game-wrapper .restart .image {
-  position: relative;
-  width: 150px;
-  height: 150px;
-}
-
-.game-wrapper .restart .image::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("../img/10_game/restart.png");
-  background-size: cover;
-  background-position: center;
-  transition: all 0.3s ease;
-  filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1));
-}
-
-.game-wrapper .restart:hover .image::before {
-  background-image: url("../img/10_game/restart_hover.png");
-  filter: drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.7));
-}
-
-.game-wrapper .restart span {
-  font-size: 32px;
-  position: relative;
-  top: 10px;
-  transition: all 0.3s ease-out;
-  filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1));
-}
-
-.game-wrapper .restart:hover span {
-  filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 1));
-}
-
-.game-wrapper .back-to-menu {
-  cursor: pointer;
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  text-align: center;
-}
-
-.game-wrapper .back-to-menu .image {
-  position: relative;
-  width: 155px;
-  height: 155px;
-}
-
-.game-wrapper .back-to-menu .image::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("../img/10_game/menu.png");
-  background-size: cover;
-  background-position: center;
-  transition: all 0.3s ease;
-  filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1));
-}
-
-.game-wrapper .back-to-menu:hover .image::before {
-  background-image: url("../img/10_game/menu_hover.png");
-  filter: drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.7));
-}
-
-.game-wrapper .back-to-menu span {
-  font-size: 32px;
-  position: relative;
-  top: 10px;
-  transition: all 0.3s ease-out;
-  filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1));
-}
-
-.game-wrapper .back-to-menu:hover span {
-  filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 1));
-}
-
-.game-wrapper .pause-container {
+.game-wrapper .pause-screen-container {
   position: absolute;
   left: 0;
   right: 0;
@@ -130,7 +46,7 @@ canvas.fullscreen {
   align-items: center;
 }
 
-.game-wrapper .pause-container .pause-wrapper {
+.game-wrapper .pause-screen-container .pause-screen {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -140,22 +56,22 @@ canvas.fullscreen {
   letter-spacing: 3px;
 }
 
-.game-wrapper .pause-container .pause-wrapper div {
+.game-wrapper .pause-screen-container .pause-screen div {
   cursor: pointer;
 }
 
-.game-wrapper .pause-container .pause-wrapper div:hover {
+.game-wrapper .pause-screen-container .pause-screen div:hover {
   text-shadow: 0px 0 20px #ffd113;
 }
 
-.game-menu {
+.start-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 85px;
 }
 
-.game-menu div {
+.start-page div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -163,44 +79,63 @@ canvas.fullscreen {
   cursor: pointer;
 }
 
-.game-menu span {
+.start-page span {
   font-size: 32px;
   position: relative;
   top: 0;
   transition: all 0.3s ease-out;
 }
 
-.game-menu div:hover span {
+.start-page div:hover span {
   top: -250px;
 }
 
-.game-menu .start .image {
-  background-image: url("../img/10_game/start.png");
+.start-page .start .image {
+  background-image: url("../assets/img/10_game/start.png");
   background-size: contain;
   width: 200px;
   height: 200px;
 }
 
-.game-menu .start:hover .image {
-  background-image: url("../img/10_game/start_hover.png");
+.start-page .start:hover .image {
+  background-image: url("../assets/img/10_game/start_hover.png");
 }
 
-.game-menu .help .image {
-  background-image: url("../img/10_game/help.png");
+.start-page .help .image {
+  background-image: url("../assets/img/10_game/help.png");
   background-size: contain;
   width: 165px;
   height: 165px;
 }
 
-.game-menu .help:hover .image {
-  background-image: url("../img/10_game/help_hover.png");
+.start-page .help:hover .image {
+  background-image: url("../assets/img/10_game/help_hover.png");
 }
 
-.game-menu .help span {
+.start-page .help span {
   top: 17px;
 }
 
-.game-menu .help:hover span {
+.start-page .help:hover span {
+  top: -233px;
+}
+
+.start-page .imprint .image {
+  background-image: url("../assets/img/10_game/imprint.png");
+  background-size: contain;
+  width: 165px;
+  height: 165px;
+}
+
+.start-page .imprint:hover .image {
+  background-image: url("../assets/img/10_game/imprint_hover.png");
+}
+
+.start-page .imprint span {
+  top: 17px;
+}
+
+.start-page .imprint:hover span {
   top: -233px;
 }
 
@@ -242,7 +177,7 @@ canvas.fullscreen {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../img/10_game/medium-volume.png");
+  background-image: url("../assets/img/10_game/medium-volume.png");
   background-size: cover;
   background-position: center;
   transition: all 0.3s ease;
@@ -250,7 +185,7 @@ canvas.fullscreen {
 }
 
 .control .sound.muted span::before {
-  background-image: url("../img/10_game/mute.png");
+  background-image: url("../assets/img/10_game/mute.png");
 }
 
 .control .sound:hover span::before {
@@ -261,7 +196,7 @@ canvas.fullscreen {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../img/10_game/pause.png");
+  background-image: url("../assets/img/10_game/pause.png");
   background-size: cover;
   background-position: center;
   transition: all 0.3s ease;
@@ -269,7 +204,7 @@ canvas.fullscreen {
 }
 
 .control .pause.paused span::before {
-  background-image: url("../img/10_game/resume.png");
+  background-image: url("../assets/img/10_game/resume.png");
 }
 
 .control .pause:hover span::before {
@@ -280,7 +215,7 @@ canvas.fullscreen {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../img/10_game/fullscreen.png");
+  background-image: url("../assets/img/10_game/fullscreen.png");
   background-size: cover;
   background-position: center;
   transition: all 0.3s ease;
@@ -288,7 +223,7 @@ canvas.fullscreen {
 }
 
 .control .full.fulled span::before {
-  background-image: url("../img/10_game/unfullscreen.png");
+  background-image: url("../assets/img/10_game/unfullscreen.png");
 }
 
 .control .full:hover span::before {
@@ -299,7 +234,7 @@ canvas.fullscreen {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../img/10_game/touch.png");
+  background-image: url("../assets/img/10_game/touch.png");
   background-size: cover;
   background-position: center;
   transition: all 0.3s ease;
@@ -307,17 +242,18 @@ canvas.fullscreen {
 }
 
 .control .touch.touched span::before {
-  background-image: url("../img/10_game/untouch.png");
+  background-image: url("../assets/img/10_game/untouch.png");
 }
 
 .control .touch:hover span::before {
   filter: drop-shadow(0px 0px 10px rgba(255, 255, 255));
 }
 
-.help-wrapper {
+.help-wrapper,
+.imprint-wrapper {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
   font-family: "rye", Arial, Helvetica, sans-serif;
   width: 100%;
   height: 100%;
@@ -329,7 +265,8 @@ canvas.fullscreen {
   right: 0;
 }
 
-.help-wrapper .close {
+.help-wrapper .close,
+.imprint-wrapper .close {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -338,23 +275,31 @@ canvas.fullscreen {
   height: 30px;
 }
 
-.help-wrapper .close span::before {
+.help-wrapper .close span::before,
+.imprint-wrapper .close span::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../img/10_game/close.png");
+  background-image: url("../assets/img/10_game/close.png");
   background-size: cover;
   background-position: center;
   transition: all 0.3s ease;
   filter: drop-shadow(0px 0px 5px rgb(0, 0, 0));
 }
 
-.help-wrapper .close:hover span::before {
+.help-wrapper .close:hover span::before,
+.imprint-wrapper .close:hover span::before {
   filter: drop-shadow(0px 0px 25px rgba(255, 255, 255));
 }
 
-.help-wrapper p {
+.help-wrapper p, .imprint-wrapper p {
   font-size: 21px;
+  color: #f3d132;
+  margin: 20px;
+}
+
+.help-wrapper h2, .imprint-wrapper h2 {
+  font-size: 40px;
   color: #f3d132;
   margin: 20px;
 }
@@ -448,4 +393,124 @@ canvas.fullscreen {
 .responsive-portrait-message p {
   font-size: 35px;
   color: #ffa500;
+}
+
+.win-lose-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-image: url("../assets/img/5_background/second_half_background.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.win-lose-wrapper.win:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/img/9_intro_outro_screens/win/you-win.png");
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.win-lose-wrapper.lose:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/img/9_intro_outro_screens/game_over/game_over.png");
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.win-lose-wrapper .restart {
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  text-align: center;
+}
+
+.win-lose-wrapper .restart .image {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.win-lose-wrapper .restart .image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/img/10_game/restart.png");
+  background-size: cover;
+  background-position: center;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1));
+}
+
+.win-lose-wrapper .restart:hover .image::before {
+  background-image: url("../assets/img/10_game/restart_hover.png");
+  filter: drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.7));
+}
+
+.win-lose-wrapper .restart span {
+  font-size: 32px;
+  position: relative;
+  top: 10px;
+  transition: all 0.3s ease-out;
+  filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1));
+}
+
+.win-lose-wrapper .restart:hover span {
+  filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 1));
+}
+
+.win-lose-wrapper .back-to-menu {
+  cursor: pointer;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  text-align: center;
+}
+
+.win-lose-wrapper .back-to-menu .image {
+  position: relative;
+  width: 155px;
+  height: 155px;
+}
+
+.win-lose-wrapper .back-to-menu .image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/img/10_game/menu.png");
+  background-size: cover;
+  background-position: center;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1));
+}
+
+.win-lose-wrapper .back-to-menu:hover .image::before {
+  background-image: url("../assets/img/10_game/menu_hover.png");
+  filter: drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.7));
+}
+
+.win-lose-wrapper .back-to-menu span {
+  font-size: 32px;
+  position: relative;
+  top: 10px;
+  transition: all 0.3s ease-out;
+  filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1));
+}
+
+.win-lose-wrapper .back-to-menu:hover span {
+  filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 1));
 }
